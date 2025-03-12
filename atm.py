@@ -3,11 +3,18 @@
 #숫자로 원하는 기능을 입력할 수 있게 만들어 주세요. 그리고 시용자가 입력한 기능은 atm변수에 담아주세요.
 
 balance = 3000
+
 while True:
     num = input("사용하실 기능을 선택해주세요(1.입금, 2.출금, 3.영수증보기, 4.종료)")
    
     if num == "1":
-        print("입금 기능입니다.")
+        deposit_amount = input("입금할 금액을 입력해주세요 : ") #"122324" .isdigit => True
+        if deposit_amount.isdigit() and int(deposit_amount) > 0: #첫번째 조건 문자가 입력된 건 아닌지 확인 / 0보다 큰 금액을 입력했는지
+            balance += int(deposit_amount) #balance = balance + int(deposit_amount) 현재잔액은 balance에 담김
+        
+            print(f"고객님이 입금하신 금액은 {deposit_amount} 원이고, 현재 잔액은 {balance} 입니다.")
+        else:
+            print("정신차리고 제대로 된 숫자 형태로 입금액을 작성해줘!!!")
     if num == "2":
        pass
     if num == "3":       
