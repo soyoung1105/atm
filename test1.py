@@ -1,2 +1,6 @@
-a = 10
-b = 20
+lis = []
+
+if lis:
+    print("True")
+if lis:
+    print("False")    
