@@ -1,6 +1,9 @@
 # balance : 통장에 들어있는 기본 금액을 담는 변수
 # 1.입금 2.출금 3.영수증 보기 4.종료 => 글자를 입력 받을지 (입금, 출금...)/ 숫자로 입력받을지(1,2,3///)
 #숫자로 원하는 기능을 입력할 수 있게 만들어 주세요. 그리고 시용자가 입력한 기능은 atm변수에 담아주세요.
+#deposit_amount:
+#
+## min(8000, 10000)-> 8000 / min(8000,5000) -> 5000
 
 balance = 3000
 
@@ -16,9 +19,13 @@ while True:
         else:
             print("정신차리고 제대로 된 숫자 형태로 입금액을 작성해줘!!!")
     if num == "2":
-       pass
-    if num == "3":       
-       pass
+       withdraw_amount = input("출금할 금액을 입력해주세요 : ")
+       if withdraw_amount.isdigit() and int(withdraw_amount) > 0:
+           withdraw_amount = min(balance, int(withdraw_amount))
+           balance -= withdraw_amount #뺀 값을 다시 여기에 할당하겠다는 코드는 = 뺴는 동시에 다시 집어넣겠다
+           print(f"고객님이 출금한 금액은 {deposit_amount}원이고, 현재 잔액은 {balance}원 입니다.")
+       else:
+           print("정신차리고, 제대로된 숫자형태로 입금액을 작성해줘!!!")
     if num == "4":
        print("서비스를 종료합니다.") 
        break
